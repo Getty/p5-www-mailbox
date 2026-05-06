@@ -12,6 +12,10 @@ requires 'Params::ValidationCompiler'   => '0';
 requires 'Type::Library'                => '1.012';
 requires 'Type::Utils'                  => '1.012';
 requires 'Types::Standard'              => '1.012';
+requires 'Getopt::Long::Descriptive'    => '0';
+requires 'Pod::Usage'                  => '0';
+requires 'File::HomeDir'                => '0';
+requires 'Path::Tiny'                  => '0';
 
 on test => sub {
     requires 'Test::More'       => '0';

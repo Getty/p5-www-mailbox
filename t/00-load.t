@@ -16,6 +16,15 @@ BEGIN {
     use_ok('WWW::MailboxOrg::API::Account');
     use_ok('WWW::MailboxOrg::API::Domain');
     use_ok('WWW::MailboxOrg::API::Mail');
+    use_ok('WWW::MailboxOrg::API::Mailinglist');
+    use_ok('WWW::MailboxOrg::API::Blacklist');
+    use_ok('WWW::MailboxOrg::API::Spamprotect');
+    use_ok('WWW::MailboxOrg::API::Videochat');
+    use_ok('WWW::MailboxOrg::API::Backup');
+    use_ok('WWW::MailboxOrg::API::Invoice');
+    use_ok('WWW::MailboxOrg::API::Passwordreset');
+    use_ok('WWW::MailboxOrg::API::Validate');
+    use_ok('WWW::MailboxOrg::API::Utils');
     use_ok('WWW::MailboxOrg::API::System');
     use_ok('WWW::MailboxOrg::Entity::Account');
     use_ok('WWW::MailboxOrg::Entity::Domain');
@@ -68,7 +77,7 @@ subtest 'WWW::MailboxOrg::Types' => sub {
     };
 };
 
-subtest 'WWW::MailboxOrg::Role::RPC requires client' => sub {
+subtest 'WWW::MailboxOrg::API::Base requires client' => sub {
     eval {
         my $controller = WWW::MailboxOrg::API::Base->new;
     };

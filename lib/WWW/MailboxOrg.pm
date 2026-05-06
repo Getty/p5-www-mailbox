@@ -8,6 +8,15 @@ use WWW::MailboxOrg::API::Base;
 use WWW::MailboxOrg::API::Account;
 use WWW::MailboxOrg::API::Domain;
 use WWW::MailboxOrg::API::Mail;
+use WWW::MailboxOrg::API::Mailinglist;
+use WWW::MailboxOrg::API::Blacklist;
+use WWW::MailboxOrg::API::Spamprotect;
+use WWW::MailboxOrg::API::Videochat;
+use WWW::MailboxOrg::API::Backup;
+use WWW::MailboxOrg::API::Invoice;
+use WWW::MailboxOrg::API::Passwordreset;
+use WWW::MailboxOrg::API::Validate;
+use WWW::MailboxOrg::API::Utils;
 use WWW::MailboxOrg::API::System;
 use namespace::clean;
 
@@ -175,6 +184,105 @@ has mail => (
 =attr mail
 
 Returns L<WWW::MailboxOrg::API::Mail> for email operations.
+
+=cut
+
+has mailinglist => (
+    is      => 'lazy',
+    builder => sub { WWW::MailboxOrg::API::Mailinglist->new(client => shift) },
+);
+
+=attr mailinglist
+
+Returns L<WWW::MailboxOrg::API::Mailinglist> for mailing list management.
+
+=cut
+
+has blacklist => (
+    is      => 'lazy',
+    builder => sub { WWW::MailboxOrg::API::Blacklist->new(client => shift) },
+);
+
+=attr blacklist
+
+Returns L<WWW::MailboxOrg::API::Blacklist> for blacklist management.
+
+=cut
+
+has spamprotect => (
+    is      => 'lazy',
+    builder => sub { WWW::MailboxOrg::API::Spamprotect->new(client => shift) },
+);
+
+=attr spamprotect
+
+Returns L<WWW::MailboxOrg::API::Spamprotect> for spam protection settings.
+
+=cut
+
+has videochat => (
+    is      => 'lazy',
+    builder => sub { WWW::MailboxOrg::API::Videochat->new(client => shift) },
+);
+
+=attr videochat
+
+Returns L<WWW::MailboxOrg::API::Videochat> for video chat rooms.
+
+=cut
+
+has backup => (
+    is      => 'lazy',
+    builder => sub { WWW::MailboxOrg::API::Backup->new(client => shift) },
+);
+
+=attr backup
+
+Returns L<WWW::MailboxOrg::API::Backup> for backup operations.
+
+=cut
+
+has invoice => (
+    is      => 'lazy',
+    builder => sub { WWW::MailboxOrg::API::Invoice->new(client => shift) },
+);
+
+=attr invoice
+
+Returns L<WWW::MailboxOrg::API::Invoice> for invoice access.
+
+=cut
+
+has passwordreset => (
+    is      => 'lazy',
+    builder => sub { WWW::MailboxOrg::API::Passwordreset->new(client => shift) },
+);
+
+=attr passwordreset
+
+Returns L<WWW::MailboxOrg::API::Passwordreset> for password reset.
+
+=cut
+
+has validate => (
+    is      => 'lazy',
+    builder => sub { WWW::MailboxOrg::API::Validate->new(client => shift) },
+);
+
+=attr validate
+
+Returns L<WWW::MailboxOrg::API::Validate> for email validation.
+
+=cut
+
+has utils => (
+    is      => 'lazy',
+    builder => sub { WWW::MailboxOrg::API::Utils->new(client => shift) },
+);
+
+=attr utils
+
+Returns L<WWW::MailboxOrg::API::Utils> for utility functions.
 
 =cut
 
