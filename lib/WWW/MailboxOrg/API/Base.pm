@@ -1,0 +1,66 @@
+package WWW::MailboxOrg::API::Base;
+
+# ABSTRACT: Base API controller for auth and search
+
+use Moo;
+use MooX::Singleton;
+use Carp qw(croak);
+use Params::ValidationCompiler qw(validation_for);
+use Types::Standard qw(Str);
+
+our $VERSION = '0.001';
+
+has client => (
+    is       => 'ro',
+    required => 1,
+    weak_ref => 1,
+);
+
+sub _rpc {
+    my ($self, $method, @params) = @_;
+    my $client = $self->client or croak "No client set";
+    return $client->call($method, @params);
+}
+
+my %validators = (
+    auth => validation_for(
+        params => {
+            user => { type => Str, optional => 0 },
+            pass => { type => Str, optional => 0 },
+        },
+    ),
+    search => validation_for(
+        params => {
+            query => { type => Str, optional => 0 },
+        },
+    ),
+);
+
+sub auth {
+    my ($self, %params) = @_;
+    my $v = $validators{'auth'};
+    %params = $v->(%params) if $v;
+    return $self->_rpc('auth', \%params);
+}
+
+sub deauth {
+    my ($self) = @_;
+    return $self->_rpc('deauth');
+}
+
+sub search {
+    my ($self, %params) = @_;
+    my $v = $validators{'search'};
+    %params = $v->(%params) if $v;
+    return $self->_rpc('search', \%params);
+}
+
+1;
+
+__END__
+
+=head1 NAME
+
+WWW::MailboxOrg::API::Base - Base API controller for auth and search
+
+=cut
