@@ -35,11 +35,11 @@ __END__
 
 =head1 TYPES
 
-=head2 EmailAddress
+=type EmailAddress
 
 Valid email address format.
 
-=head2 DomainName
+=type DomainName
 
 Valid domain name format.
 

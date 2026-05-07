@@ -63,7 +63,6 @@ __END__
 
 WWW::MailboxOrg::API::Mail - Mail operations API
 
-
 =method find
 
     my $results = $api->mail->find(query => 'from:user@example.com');

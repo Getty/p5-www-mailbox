@@ -74,4 +74,8 @@ __END__
 
 WWW::MailboxOrg::Entity::Domain - Domain entity object
 
+=head1 SEE ALSO
+
+L<WWW::MailboxOrg>
+
 =cut
