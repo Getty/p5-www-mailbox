@@ -105,4 +105,61 @@ __END__
 
 WWW::MailboxOrg::API::Domain - Domain management API
 
+=method add
+
+    $api->domain->add(
+        account               => 'admin@example.com',
+        domain               => 'example.com',
+        password             => 'secret123',
+        context_id           => 'optional-context-id',
+        create_new_context_id => 1,
+        memo                 => 'Optional note',
+    );
+
+Add a new domain. Required: C<account>, C<domain>, C<password>.
+
+=method del
+
+    $api->domain->del(
+        account => 'admin@example.com',
+        domain  => 'example.com',
+    );
+
+Delete a domain.
+
+=method get
+
+    $api->domain->get(domain => 'example.com');
+
+Get domain details.
+
+=method list
+
+    $api->domain->list;
+    $api->domain->list(account => 'admin@example.com');
+
+List domains. Optional C<account> or C<filter>.
+
+=method set
+
+    $api->domain->set(
+        domain                => 'example.com',
+        password              => 'newsecret',
+        context_id            => 'new-context-id',
+        create_new_context_id => 1,
+        memo                  => 'Updated note',
+    );
+
+Update domain settings. At least C<domain> required.
+
+    $api->domain->set(
+        domain                => 'example.com',
+        password              => 'newsecret',
+        context_id            => 'new-context-id',
+        create_new_context_id => 1,
+        memo                  => 'Updated note',
+    );
+
+Update domain settings. At least C<domain> required.
+
 =cut

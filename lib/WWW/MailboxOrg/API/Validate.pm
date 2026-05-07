@@ -45,4 +45,11 @@ __END__
 
 WWW::MailboxOrg::API::Validate - Validation API
 
+
+=method email
+
+    my $result = $api->validate->email(email => 'user@example.com');
+
+Validate an email address. Required: C<email>.
+
 =cut

@@ -58,4 +58,20 @@ __END__
 
 WWW::MailboxOrg::API::Spamprotect - Spam protection API
 
+
+=method status
+
+    my $status = $api->spamprotect->status(account => 'admin@example.com');
+
+Get spam protection status. Required: C<account>.
+
+=method set
+
+    $api->spamprotect->set(
+        account => 'admin@example.com',
+        active  => 1,
+    );
+
+Enable or disable spam protection. Required: C<account>, C<active>.
+
 =cut

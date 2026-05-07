@@ -63,4 +63,26 @@ __END__
 
 WWW::MailboxOrg::API::Mail - Mail operations API
 
+
+=method find
+
+    my $results = $api->mail->find(query => 'from:user@example.com');
+    my $results = $api->mail->find(query => 'subject:"hello world"');
+
+Search emails. Required: C<query> string.
+
+=method list
+
+    $api->mail->list(folder => 'INBOX', unseen_only => 1);
+    $api->mail->list(account => 'user@example.com', page => 1, per_page => 50);
+
+List emails in a folder. Optional params:
+- C<account> - Filter by account
+- C<folder> - Folder name (default: INBOX)
+- C<order_by> - Sort order
+- C<page> - Page number
+- C<per_page> - Results per page
+- C<result_mode> - Result mode
+- C<unseen_only> - Only unseen emails
+
 =cut

@@ -108,4 +108,45 @@ __END__
 
 WWW::MailboxOrg::API::Account - Account management API
 
+=method add
+
+    $api->account->add(
+        account      => 'user@example.com',
+        password     => 'secret123',
+        plan         => 'basic',
+        tarifflimits => { ... },
+        memo         => 'Optional note',
+    );
+
+Add a new account. Required: C<account>, C<password>, C<plan>.
+
+=method del
+
+    $api->account->del(account => 'user@example.com');
+
+Delete an account.
+
+=method get
+
+    $api->account->get(account => 'user@example.com');
+
+Get account details.
+
+=method list
+
+    $api->account->list;
+    $api->account->list(account => 'admin@example.com');
+
+List accounts. Optional C<account> filter.
+
+=method set
+
+    $api->account->set(
+        account => 'user@example.com',
+        plan    => 'profi',
+        memo    => 'Updated note',
+    );
+
+Update account settings. At least C<account> required.
+
 =cut

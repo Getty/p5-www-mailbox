@@ -83,4 +83,35 @@ __END__
 
 WWW::MailboxOrg::API::Backup - Backup API
 
+
+=method list
+
+    my $backups = $api->backup->list(account => 'admin@example.com');
+
+List backups. Required: C<account>.
+
+=method create
+
+    $api->backup->create(account => 'admin@example.com');
+
+Create a backup. Required: C<account>.
+
+=method restore
+
+    $api->backup->restore(
+        account => 'admin@example.com',
+        backup  => 'backup-id',
+    );
+
+Restore a backup. Required: C<account>, C<backup>.
+
+=method delete
+
+    $api->backup->delete(
+        account => 'admin@example.com',
+        backup  => 'backup-id',
+    );
+
+Delete a backup. Required: C<account>, C<backup>.
+
 =cut

@@ -71,4 +71,29 @@ __END__
 
 WWW::MailboxOrg::API::Blacklist - Blacklist API
 
+
+=method add
+
+    $api->blacklist->add(
+        account => 'admin@example.com',
+        email   => 'spam@example.com',
+    );
+
+Add an email to blacklist. Required: C<account>, C<email>.
+
+=method del
+
+    $api->blacklist->del(
+        account => 'admin@example.com',
+        email   => 'spam@example.com',
+    );
+
+Remove an email from blacklist.
+
+=method list
+
+    $api->blacklist->list(account => 'admin@example.com');
+
+List blacklist entries. Required: C<account>.
+
 =cut

@@ -63,4 +63,23 @@ __END__
 
 WWW::MailboxOrg::API::Base - Base API controller for auth and search
 
+
+=method auth
+
+    $api->base->auth(user => 'user@example.com', pass => 'secret');
+
+Authenticate and get session token. Required: C<user>, C<pass>.
+
+=method deauth
+
+    $api->base->deauth;
+
+End the current session.
+
+=method search
+
+    my $results = $api->base->search(query => 'some search terms');
+
+Search across the API. Required: C<query>.
+
 =cut

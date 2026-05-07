@@ -142,4 +142,81 @@ __END__
 
 WWW::MailboxOrg::API::Mailinglist - Mailing list API
 
+
+=method add
+
+    $api->mailinglist->add(
+        account  => 'admin@example.com',
+        list     => 'list@example.com',
+        password => 'secret',
+        memo     => 'Optional note',
+    );
+
+Add a new mailing list. Required: C<account>, C<list>, C<password>.
+
+=method del
+
+    $api->mailinglist->del(
+        account => 'admin@example.com',
+        list    => 'list@example.com',
+    );
+
+Delete a mailing list.
+
+=method get
+
+    $api->mailinglist->get(
+        account => 'admin@example.com',
+        list    => 'list@example.com',
+    );
+
+Get mailing list details.
+
+=method list
+
+    $api->mailinglist->list;
+    $api->mailinglist->list(account => 'admin@example.com');
+
+List mailing lists. Optional C<account> filter.
+
+=method set
+
+    $api->mailinglist->set(
+        account  => 'admin@example.com',
+        list     => 'list@example.com',
+        password => 'newsecret',
+        memo     => 'Updated note',
+    );
+
+Update mailing list settings. At least C<account> and C<list> required.
+
+=method add_member
+
+    $api->mailinglist->add_member(
+        account => 'admin@example.com',
+        list    => 'list@example.com',
+        email   => 'member@example.com',
+    );
+
+Add a member to a mailing list.
+
+=method del_member
+
+    $api->mailinglist->del_member(
+        account => 'admin@example.com',
+        list    => 'list@example.com',
+        email   => 'member@example.com',
+    );
+
+Remove a member from a mailing list.
+
+=method list_members
+
+    $api->mailinglist->list_members(
+        account => 'admin@example.com',
+        list    => 'list@example.com',
+    );
+
+List all members of a mailing list.
+
 =cut

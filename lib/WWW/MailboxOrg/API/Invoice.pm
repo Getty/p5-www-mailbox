@@ -71,4 +71,30 @@ __END__
 
 WWW::MailboxOrg::API::Invoice - Invoice API
 
+
+=method list
+
+    my $invoices = $api->invoice->list;
+    $api->invoice->list(account => 'admin@example.com');
+
+List invoices. Optional C<account> filter.
+
+=method get
+
+    $api->invoice->get(
+        account => 'admin@example.com',
+        invoice => 'INV-2024-001',
+    );
+
+Get invoice details. Required: C<account>, C<invoice>.
+
+=method download
+
+    $api->invoice->download(
+        account => 'admin@example.com',
+        invoice => 'INV-2024-001',
+    );
+
+Download an invoice. Required: C<account>, C<invoice>.
+
 =cut
