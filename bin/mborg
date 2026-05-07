@@ -266,7 +266,7 @@ mborg - Command-line interface for Mailbox.org API
     # Run commands
     mborg account list
     mborg domain list
-    mborg mail find "from:某人@example.com"
+    mborg mail find "from:user@example.com"
 
 =head1 CONFIGURATION
 
